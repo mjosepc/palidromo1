@@ -1,19 +1,24 @@
 package org.example;
-
-// Press Shift twice to open the Search Everywhere dialog and type `show whitespaces`,
-// then press Enter. You can now see whitespace characters in your code.
+import java.util.Scanner;
 public class Main {
     public static void main(String[] args) {
-        // Press Alt+Intro with your caret at the highlighted text to see how
-        // IntelliJ IDEA suggests fixing it.
-        System.out.printf("Hello and welcome!");
+        Scanner sc = new Scanner(System.in);
+        System.out.print("Ingrese una palabra");
+        String palabra = sc.nextLine();
+        boolean esPalindromo = esPalindromo(palabra);
 
-        // Press Mayús+F10 or click the green arrow button in the gutter to run the code.
-        for (int i = 1; i <= 5; i++) {
-
-            // Press Mayús+F9 to start debugging your code. We have set one breakpoint
-            // for you, but you can always add more by pressing Ctrl+F8.
-            System.out.println("i = " + i);
+        if (esPalindromo) {
+            System.out.println("la cadena es palindroma");
+        } else {
+            System.out.println("la cadena no es palindroma");
         }
+        sc.close();
+    }
+
+    public static boolean esPalindromo(String palabra){
+        String resultado = "";
+
+        resultado = new StringBuilder(palabra).reverse().toString();
+        return palabra.equals(resultado);
     }
 }
